@@ -82,3 +82,15 @@ app.get("/menu", (req, res)=>{
         item: RESTAURANT.menu
     })
 })
+
+//Exercise #3: Create a separate page for men categories
+app.get("/menu/:category", (req, res)=>{
+  //conditional criteria
+  const category = req.params.category;
+  const filteredArray = RESTAURANT.filter((element)=>{
+        return category === element.
+  })
+  res.render("category.ejs", {
+        item: menuItems
+  })
+})
