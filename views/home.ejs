@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <% let restaurant = item %>
   <title><%= restaurant.name %></title>
+  <style>
+    body {
+      background-image: url("https://cdn.leonardo.ai/users/18ef5c8a-497b-4042-8160-eb179278acf6/generations/1fb8fcbf-7efe-4729-9650-477e6f5768d0/Default_bystro_restaurant_3.jpg");
+      background-size: cover;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
 </head>
 <body>
     <%- include("./partials/nav.ejs") %>
@@ -14,9 +24,9 @@
   <h3>Phone Number: <%= restaurant.phone %></h3>
     <% restaurant.isOpen = false; %>
     <% if(restaurant.isOpen){ %>
-        <p>Yes we are open!</p>
+        <h3>Yes we are open!</h3>
    <% }else{ %>
-        <p>Sorry, we are closed</p>
+        <h3>Sorry, we are closed</h3>
   <% } %>
 </body>
 </html>

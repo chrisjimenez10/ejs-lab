@@ -77,3 +77,8 @@ const RESTAURANT = {
 });
 
 //Exercise #2: Create a nav bar
+app.get("/menu", (req, res)=>{
+    res.render("menu.ejs", {
+        item: RESTAURANT.menu
+    })
+})

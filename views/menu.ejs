@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+  <style>
+    body {
+        background-image: url("https://tb-static.uber.com/prod/image-proc/processed_images/86888124eacf74be7a326b92ddd18005/61e8d264e9409914f90881b13f54d0ac.jpeg");
+        background-size: cover;
+        color: white;
+    }
+    
+  </style>
+</head>
+<body>
+    <%- include("./partials/nav.ejs") %>
+    <% let menu = item %>
+  <h1>Full Menu</h1>
+  <!-- <ul>
+    <% menu.forEach(dish => { %>
+    <li><%= dish.name %>: $<%= dish.price %>
+        <p>
+            Details: <em><%= dish.details %></em><br>Rating: <%= dish.rating %>
+        </p>
+    </li>
+    <% }) %>
+  </ul> -->
+  
+<!-- Level-Up   -->
+    <h2>Main</h2>
+    <% menu.forEach(dish => { %>
+        <% if (dish.category === "mains") { %>
+            <ul>
+                <li><%= dish.name %>: $<%= dish.price %>
+                    <p>
+                        Details: <em><%= dish.details %></em><br>Rating: <%= dish.rating %>
+                    </p>
+                </li>
+            </ul>
+    <% } %>
+    <% }) %>
+    <h2>Desserts</h2>
+    <% menu.forEach(dish => { %>
+        <% if (dish.category === "desserts") { %>
+            <ul>
+                <li><%= dish.name %>: $<%= dish.price %>
+                    <p>
+                        Details: <em><%= dish.details %></em><br>Rating: <%= dish.rating %>
+                    </p>
+                </li>
+            </ul>
+    <% } %>
+    <% }) %>
+    <h2>Sides</h2>
+    <% menu.forEach(dish => { %>
+        <% if (dish.category === "sides") { %>
+            <ul>
+                <li><%= dish.name %>: $<%= dish.price %>
+                    <p>
+                        Details: <em><%= dish.details %></em><br>Rating: <%= dish.rating %>
+                    </p>
+                </li>
+            </ul>
+    <% } %>
+    <% }) %>
+</body>
+</html>
