@@ -83,14 +83,15 @@ app.get("/menu", (req, res)=>{
     })
 })
 
-//Exercise #3: Create a separate page for men categories
+//Exercise #3: Create a separate page for menu categories
 app.get("/menu/:category", (req, res)=>{
   //conditional criteria
   const category = req.params.category;
-  const filteredArray = RESTAURANT.filter((element)=>{
-        return category === element.
+  const filteredArray = RESTAURANT.menu.filter((element)=>{
+       return element.category === category; //Should this condition be TRUE, new array will hold only those elements
   })
   res.render("category.ejs", {
-        item: menuItems
+        menuItems: filteredArray,
+        categoryName: category //I was stuck here for 2 hours (OVERTHINKING): I was trying to get the category name from the filtered array tyring various array methods (I could have just used the routing/URL parameter and the variable I asigned the category name to in the first place!!)
   })
 })

@@ -3,9 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <style>
+        body {
+            background-color: darkgoldenrod;
+            color: white;
+        }
+        h1::first-letter {
+            text-transform: uppercase;
+        }
+        <% if(categoryName === "mains"){ %>
+            div {
+                background-image: url("https://media.istockphoto.com/id/104704117/photo/restaurant-plates.jpg?s=612x612&w=0&k=20&c=MhFdN_qVgzoHov-kgFx0qWSW0nZht4lZV1zinC3Ea44=");
+                height: 400px;
+                width: 500px;
+                margin: 0 0 0 10px;
+                box-shadow: 10px 10px 10px black;
+            }
+       <% }else if(categoryName === "desserts"){ %>
+            div {
+                background-image: url("https://cdn.hswstatic.com/gif/desserts-update.jpg");
+                height: 500px;
+                width: 500px;
+                margin: 0 0 0 10px;
+                box-shadow: 10px 10px 10px black;
+            }
+      <% }else if(categoryName === "sides"){ %>
+            div {
+                background-image: url("https://hips.hearstapps.com/delish/assets/17/11/1489785415-delish-cripsy-green-bean-fries-2.jpg");
+                height: 400px;
+                width: 600px;
+                margin: 0 0 0 10px;
+                box-shadow: 10px 10px 10px black;
+            }
+     <% } %>
+    </style>
+    <!-- I couldn't upper case title tag with CSS, so looked up how to do it with javascript (learned about string methods): with charAt() I chose the first character and then added that to a sliced version of the original string to create the new string with first letter upper case -->
+    <title><%= categoryName.charAt(0).toUpperCase() + categoryName.slice(1) %></title>
 </head>
 <body>
     <%- include("./partials/nav.ejs") %>
+    <h1><%= categoryName %></h1>
+    <!-- The data we sent to our views through our render() is an array, so we can use array methods -->
+    <% menuItems.forEach(element => { %>
+        <ul>
+            <li>
+                <%= element.name %>: $<%= element.price %>
+                <p>
+                    Details: <em><%= element.details %></em><br>Rating: <%= element.rating %>
+                </p>
+            </li>
+        </ul>
+    <% }) %>
+    <div>
+       <!-- Image -->
+    </div>
 </body>
 </html>
